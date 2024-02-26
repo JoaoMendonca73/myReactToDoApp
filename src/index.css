@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+    108.7deg,
+    rgba(221, 22, 224, 1) 11%,
+    rgb(0, 4, 65) 88.2%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+p {
+  color: white;
+  font-size: 3rem;
+  font-weight: 500;
+  margin: 2.5rem 0;
+}
+
+.inputContainer {
+  width: 300px;
+  display: flex;
+  margin: 0 auto;
+  place-items: center;
+  position: relative;
+}
+
+.inputContainer input {
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem;
+  font-size: 2rem;
+  text-align: start;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  color: rgba(0, 4, 65, 0.644);
+  position: relative;
+}
+
+.addTask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  color: rgb(0, 4, 65);
+  cursor: pointer;
+}
