@@ -2,28 +2,49 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 export default function ToDoApp() {
-  const [tasks, setTasks] = useState(["clean Room", "cook", "eat"]);
+  const [tasks, setTasks] = useState([]);
+  let [newTask, setNewTask] = useState("");
+
+  const handleSetTasks = () => {
+    setTasks((t) => [...t, newTask]);
+    setNewTask = "";
+  };
+
+  const handleInputChange = (e) => {
+    setNewTask(e.target.value);
+  };
+
+  const handleDoneButton = () => {};
+  const handleDelButton = () => {};
 
   return (
     <div className="appContainer">
-      <p>My ToDo App</p>
+      <h1>My ToDo App</h1>
       <div className="inputContainer">
         <input
           type="text"
           required
           autoComplete="off"
           placeholder="Enter Task.."
+          onChange={handleInputChange}
+          value={newTask}
         />
-        <button className="addTask">Add</button>
+        <button className="addTask" onClick={handleSetTasks}>
+          Add
+        </button>
       </div>
       <ul className="cardContainer">
-        {tasks.map((itm, i) => {
+        {tasks.map((item, i) => {
           return (
             <li key={i}>
-              {itm}
+              <p>{item}</p>
               <span className="btnContainer">
-                <button>Done</button>
-                <button>Delete</button>
+                <button className="doneButton" onClick={handleDoneButton}>
+                  Done
+                </button>
+                <button className="delButton" onClick={handleDelButton}>
+                  Del
+                </button>
               </span>
             </li>
           );
