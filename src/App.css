@@ -96,18 +96,8 @@ h1 {
   transition: all 0.3s;
 }
 
-.doneButton {
-  background-color: rgb(15, 128, 0);
-  color: rgb(255, 255, 255);
-}
-
-.doneButton:hover,
-.doneButton:hover {
-  background-color: rgb(11, 90, 0);
-  transform: scale(1.2);
-}
-
 .delButton {
+  font-size: 1rem;
   background-color: rgb(255, 74, 74);
   color: white;
 }
@@ -124,9 +114,4 @@ h1 {
   color: rgba(255, 255, 255, 0.658);
   bottom: 0;
   left: 1rem;
-}
-
-.done {
-  text-decoration: line-through;
-  background-color: rgba(255, 0, 0, 0.253);
 }

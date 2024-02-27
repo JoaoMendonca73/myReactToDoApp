@@ -7,15 +7,17 @@ export default function ToDoApp() {
 
   const handleSetTasks = () => {
     setTasks((t) => [...t, newTask]);
-    setNewTask = "";
+    setNewTask("");
   };
 
   const handleInputChange = (e) => {
     setNewTask(e.target.value);
   };
 
-  const handleDoneButton = () => {};
-  const handleDelButton = () => {};
+  const handleDelButton = (index) => {
+    const newTasks = tasks.filter((_, i) => i !== index);
+    setTasks(newTasks);
+  };
 
   return (
     <div className="appContainer">
@@ -36,13 +38,13 @@ export default function ToDoApp() {
       <ul className="cardContainer">
         {tasks.map((item, i) => {
           return (
-            <li key={i}>
+            <li key={i} id={i}>
               <p>{item}</p>
               <span className="btnContainer">
-                <button className="doneButton" onClick={handleDoneButton}>
-                  Done
-                </button>
-                <button className="delButton" onClick={handleDelButton}>
+                <button
+                  className="delButton"
+                  onClick={() => handleDelButton(i)}
+                >
                   Del
                 </button>
               </span>
