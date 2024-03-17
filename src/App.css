@@ -26,7 +26,6 @@ body::-webkit-scrollbar {
 }
 
 .appContainer {
-  position: relative;
   width: 90vw;
   min-height: 90vh;
   background-color: rgba(255, 255, 255, 0.233);
@@ -35,17 +34,31 @@ body::-webkit-scrollbar {
   margin-top: 1rem;
   border: none;
   border-radius: 10px;
+  position: relative;
+}
+
+.header{
+  padding: 1em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
 }
 
 .cpy {
   position: absolute;
-  top: 0;
+  bottom: 10px;
+  right: 10px;
   color: rgb(0, 0, 0);
+  
 }
 .timeDisplay {
   position: absolute;
-  top: 5%;
-  right: -80%;
+  top: 10px;
+  left: 10px;
+  color: black;
+  font-size: 2rem;
 }
 
 h1 {
@@ -55,19 +68,19 @@ h1 {
 }
 
 .inputContainer {
-  width: 300px;
+  width: clamp(100%,300px, 60%);
   display: flex;
   margin: 0 auto;
-  vertical-align: middle;
+  justify-content: center;
   align-items: center;
   position: relative;
 }
 
 .inputContainer input {
-  width: 100%;
+  width: auto-fit;
   height: 100%;
-  padding: 0.5rem 1.5rem;
-  font-size: 1.5rem;
+  padding: 0.8em 1.5rem;
+  font-size: 1rem;
   text-align: start;
   border: none;
   border-radius: 10px;
@@ -77,14 +90,12 @@ h1 {
 }
 
 .addTask {
-  position: absolute;
-  top: 0;
-  right: 0;
   height: 100%;
-  padding: 0 1rem;
+  padding: 1rem 1rem;
   border: none;
   border-radius: 10px;
   outline: none;
+  background-color: rgb(176, 181, 248);
   color: rgb(0, 4, 65);
   cursor: pointer;
 }
@@ -102,7 +113,7 @@ h1 {
   border-radius: 10px;
   list-style-type: none;
   user-select: none;
-  position: relative;
+  font-size: calc(16px + 4 * ((100vw - 568px) / (768 - 568)));
 }
 
 .cardContainer li:hover {
@@ -110,9 +121,13 @@ h1 {
   transition: all 0.3s;
 }
 
+.btnContainer{
+  display: grid;
+  place-items: center;
+}
+
 .btnContainer button {
   padding: 0.3rem;
-  margin: 0 0.2rem;
   border: none;
   outline: none;
   border-radius: 5px;
@@ -120,20 +135,13 @@ h1 {
   transition: all 0.3s;
 }
 
-.doneButton {
-  font-size: 1rem;
-  background-color: rgb(95, 255, 74);
-  color: white;
+input[type='checkbox']{
+  transform: scale(2);
 }
 
-.doneButton:hover{
-  background-color: rgb(52, 126, 37);
-  transform: scale(1.2);
-}
-
-.doneButton:active {
-  background-color: rgb(24, 59, 16);
-
+input[type='checkbox']:checked ~ p{
+  text-decoration: line-through;
+  color: red;
 }
 
 .delButton {
@@ -158,9 +166,4 @@ h1 {
   color: rgba(255, 255, 255, 0.658);
   bottom: 0;
   left: 1rem;
-}
-
-.done>p {
-  text-decoration: line-through;
-  color: red;
 }

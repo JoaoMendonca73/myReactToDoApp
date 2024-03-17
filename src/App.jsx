@@ -6,7 +6,6 @@ export default function ToDoApp() {
   const [tasks, setTasks] = useState([]);
   let [newTask, setNewTask] = useState("");
   const [timeNow, setTimeNow] = useState("00:00");
-  const [isDone, setIsDone] = useState(false);
 
   const handleSetTasks = () => {
     setTasks((t) => [...t, newTask]);
@@ -17,9 +16,6 @@ export default function ToDoApp() {
     setNewTask(e.target.value);
   };
 
-  const handleDoneButton = () => {
-    setIsDone(!isDone)
-  }
 
   //Delete Button Action
 
@@ -45,16 +41,15 @@ export default function ToDoApp() {
 
   return (
     <div className="appContainer">
-      <div className="cpy">&copy;2024 Miguel</div>
-      <div className="timeDisplay">
-        <p>{timeNow}</p>
-      </div>
+        <h2 className="timeDisplay">{timeNow}</h2>
+      
       <h1>My ToDo App</h1>
       <div className="inputContainer">
         <input
           type="text"
           required
           autoComplete="off"
+          maxLength={30}
           placeholder="Enter Task.."
           onChange={handleInputChange}
           value={newTask}
@@ -66,23 +61,23 @@ export default function ToDoApp() {
       <ul className="cardContainer">
         {tasks.map((item, i) => {
           return (
-            <li key={item.id} id={i} className={isDone?'done':''}>
+            <li key={item.id} >
+                <input type="checkbox" name="check" id="check"  />
               <p>{item}</p>
               <span className="btnContainer">
-                <button className="doneButton" onClick={handleDoneButton}>
-                  Done
-                </button>
-                <button
-                  className="delButton"
-                  onClick={() => handleDelButton(i)}
-                >
-                  Del
-                </button>
+                
+              <button
+                className="delButton"
+                onClick={() => handleDelButton(i)}
+              >
+                Del
+              </button>
               </span>
             </li>
           );
         })}
       </ul>
+      <span className="cpy">&copy;2024 Miguel</span>
     </div>
   );
 }
