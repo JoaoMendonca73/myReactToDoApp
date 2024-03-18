@@ -48,17 +48,18 @@ body::-webkit-scrollbar {
 
 .cpy {
   position: absolute;
-  bottom: 10px;
+  top: 5px;
   right: 10px;
   color: rgb(0, 0, 0);
+  font-size: 1.3rem;
   
 }
-.timeDisplay {
+#timeDisplay {
   position: absolute;
-  top: 10px;
+  top: 5px;
   left: 10px;
   color: black;
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 
 h1 {

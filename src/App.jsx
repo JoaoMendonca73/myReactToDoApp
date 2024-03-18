@@ -41,7 +41,7 @@ export default function ToDoApp() {
 
   return (
     <div className="appContainer">
-        <h2 className="timeDisplay">{timeNow}</h2>
+        <div id="timeDisplay">{timeNow}</div>
       
       <h1>My ToDo App</h1>
       <div className="inputContainer">
